@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>CMPG323_Project2_37279432</RootNamespace>
+    <UserSecretsId>b5df01a4-babb-4e73-8556-60ce7589d6da</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
