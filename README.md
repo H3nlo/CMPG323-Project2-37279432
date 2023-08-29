@@ -8,3 +8,5 @@ Main Branch - This branch will only have the stable and fully-tested project.
 Development Branch - Is for ongoing development in the project. 
 
 Hotfix Branch - Is used to quickly fix and address issues.
+
+Connected Github with Visual Studios
