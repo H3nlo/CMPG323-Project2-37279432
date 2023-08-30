@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace CMPG323_Project2_37279432.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticateController : ControllerBase
