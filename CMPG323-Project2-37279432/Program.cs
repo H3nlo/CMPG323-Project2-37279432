@@ -23,15 +23,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<Project2AZUREDBContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+builder.Services.AddDbContext<Project2AZUREDBContext>(options => options.UseSqlServer("name=ConnectionStrings:ConnStr"));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("name=ConnectionStrings:ConnStr"));
 
 // For Identity  
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
-
 
 // Adding Authentication  
 builder.Services.AddAuthentication(options =>
@@ -63,6 +61,7 @@ builder.Services.AddAuthorization();
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddEnvironmentVariables();
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -80,8 +79,7 @@ builder.Services.AddSwaggerGen(c =>
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer",
         BearerFormat = "JWT"
-    };
-    c.AddSecurityDefinition("Bearer", securityScheme);
+    }; c.AddSecurityDefinition("Bearer", securityScheme);
 
     // Require the Bearer token for all API operations
     var securityRequirement = new OpenApiSecurityRequirement
@@ -100,6 +98,7 @@ builder.Services.AddSwaggerGen(c =>
     };
     c.AddSecurityRequirement(securityRequirement);
 });
+
 
 
 var app = builder.Build();
@@ -121,8 +120,9 @@ else
     });
 }
 
-
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

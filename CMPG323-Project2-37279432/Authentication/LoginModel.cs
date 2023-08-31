@@ -9,6 +9,7 @@ namespace CMPG323_Project2_37279432.Authentication
 
         [Required(ErrorMessage = "Password is required")]
         public string? Password { get; set; }
+
     }
 
 }
