@@ -5,6 +5,10 @@ Creating a CRUD RESTful API that connects to a database to manage logistics data
 # IMPORTANT
 Main Branch - This branch will only have the stable and fully-tested project. 
 
+# Link to API on AZURE
+https://cmpg323-project2-3727943220230830191736.azurewebsites.net/index.html
+
+
 Development Branch - Is for ongoing development in the project. 
 
 #Made new WEB API project (started over)
